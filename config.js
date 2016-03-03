@@ -26,7 +26,7 @@ config = {
 
   // Production (Heroku)
   production: {
-    url: process.env.HEROKU_URL,
+    url: process.env.GHOST_URL,
     mail: {
       transport: 'SMTP',
       options: {
@@ -41,7 +41,14 @@ config = {
     storage: storage,
     database: {
       client: 'postgres',
-      connection: process.env.DATABASE_URL,
+      connection: {
+                host     : process.env.POSTGRES_ENV_DOCKERCLOUD_SERVICE_HOSTNAME,
+                user     : process.env.POSTGRES_ENV_POSTGRES_USER,
+                password : process.env.POSTGRES_ENV_POSTGRES_PASSWORD,
+                database : process.env.DATABASE_NAME || 'ghost_db',
+                charset  : 'utf8'
+            },
+
       debug: false
     },
     server: {
