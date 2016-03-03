@@ -53,7 +53,7 @@ config = {
     },
     server: {
       host: '0.0.0.0',
-      port: process.env.PORT
+      port: 8080
     },
     paths: {
       contentPath: path.join(__dirname, '/content/')
