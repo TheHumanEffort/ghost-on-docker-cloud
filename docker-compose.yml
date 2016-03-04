@@ -1,0 +1,12 @@
+ghost:
+  image: 'thehumaneffort/ghost-on-docker-cloud:latest'
+  command: '/bin/sh -c "cd /application && npm start --production"'
+  environment:
+    - 'GHOST_URL=https://localhost:8080'
+  links:
+    - 'ghost-db:postgres'
+ghost-db:
+  image: 'postgres:9.4'
+  environment:
+    - POSTGRES_PASSWORD=abcdefg
+    - POSTGRES_USER=ghost_dba
