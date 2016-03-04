@@ -28,7 +28,7 @@ config = {
   production: {
     url: process.env.GHOST_URL,
     mail: {
-    from: '"The Human Effort" <blog@thehumaneffort.com>',
+    from: process.env.EMAIL_SEND_ADDRESS,
       transport: 'SMTP',
       options: {
         service: 'Mailgun',
